@@ -1,0 +1,49 @@
+.mcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  background-color: #161620;
+  color: white;
+  padding-top: 80px;
+  padding-left: 50px;
+}
+.heading {
+  font-weight: bold;
+}
+.o {
+  font-weight: lighter;
+}
+.each {
+  display: flex;
+  width: 100vw;
+  grid-template-columns: 25% 40% 25%;
+  gap: 120px;
+  align-items: center;
+  padding: 10px;
+  margin-top: 30px;
+  border: 0 solid #32323b;
+  transition: background-color 0.3s linear;
+}
+
+.each:hover {
+  background-color: #e2e2e5;
+  /* cursor: pointer; */
+}
+/* todo.module.css */
+
+.markAsDoneButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #007bff; /* Blue color for the text */
+  font-weight: bold;
+}
+
+.checkIcon {
+  margin-left: 5px; /* Adjust spacing between text and icon */
+  height: 20px;
+  width: 20px;
+}
+

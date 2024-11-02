@@ -1,0 +1,33 @@
+.each {
+  display: grid;
+  width: 100vw;
+  grid-template-columns: 25% 40% 25%;
+  gap: 100px;
+  padding: 10px 10px;
+  border: 0 solid #32323b;
+  transition: background-color 0.3s linear;
+}
+
+.each:hover {
+  background-color: #f0f0f6;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.heading {
+  font-weight: bold;
+}
+.o {
+  font-weight: lighter;
+}
+@media only screen and (max-width: 600px) {
+  .each {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    gap: 10px;
+    /* padding: 0px; */
+    /* margin-right: 30px; */
+  }
+}

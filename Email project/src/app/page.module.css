@@ -1,0 +1,166 @@
+/* Main container for the entire app */
+.maincontainer {
+  display: flex;
+  background-color: #f5f5f5; /* Light background for the main container */
+  height: 100vh;
+}
+
+/* Sidebar container for the navigation icons */
+.sidecontainer,
+.sidecontainert {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+  align-items: center;
+  gap: 50px;
+  background-color: #ffffff; /* White background for the sidebar */
+  border-right: 1px solid #e0e0e0; /* Light border for separation */
+  width: 60px;
+  height: 100vh;
+}
+
+/* Styles for each icon in the sidebar */
+.mini,
+.minis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 60px;
+  cursor: pointer;
+}
+
+/* Default icon style */
+.icons {
+  height: 30px;
+  width: 30px;
+  color: #888888; /* Gray color for icons */
+}
+
+/* Selected icon style */
+.iconsselect {
+  height: 30px;
+  width: 30px;
+  color: #007bff; /* Blue color for selected icons */
+}
+
+/* Style for selected sidebar item */
+.minis {
+  border-left: 3px solid #007bff; /* Blue border for selected item */
+}
+
+/* Main content container */
+.mcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: calc(100vw - 60px); /* Adjust width considering the sidebar */
+  margin-left: 60px;
+  background-color: #ffffff; /* White background for the content area */
+  color: #333333; /* Dark text color */
+  padding-top: 70px;
+  padding-left: 20px;
+}
+
+/* Loader container for loading state */
+.lcontainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loader styles */
+.loader {
+  width: 70px; /* increased width */
+  height: 160px; /* increased height */
+  position: relative;
+}
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0 0 40px; /* adjusted bottom inset */
+  border-radius: 30px 30px 20px 20px; /* adjusted border radius */
+  padding: 2px; /* adjusted padding */
+  background: repeating-linear-gradient(-45deg, #91d2e2 0 16px, #1296a7 0 24px)
+    content-box; /* adjusted gradient steps */
+  --c: radial-gradient(farthest-side, #000 94%, #0000);
+  -webkit-mask: linear-gradient(#0000 0 0), var(--c) -20px -20px,
+    var(--c) 30px -28px, var(--c) 18px -12px, var(--c) -24px 18px,
+    var(--c) 28px 18px, var(--c) 46px 54px, var(--c) -16px 70px,
+    var(--c) 50% 50%, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0), var(--c) -20px -20px, var(--c) 30px -28px,
+    var(--c) 18px -12px, var(--c) -24px 18px, var(--c) 28px 18px,
+    var(--c) 46px 54px, var(--c) -16px 70px, var(--c) 50% 50%,
+    linear-gradient(#0000 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude, add, add, add, add, add, add, add, add;
+  -webkit-mask-repeat: no-repeat;
+  animation: l2 3s infinite;
+}
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: 50% calc(50% - 8px) 0; /* adjusted position */
+  background: #e0a267;
+  border-radius: 100px; /* adjusted border radius */
+}
+@keyframes l2 {
+  0% {
+    -webkit-mask-size: auto, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  10% {
+    -webkit-mask-size: auto, 50px 50px, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  20% {
+    -webkit-mask-size: auto, 50px 50px, 50px 50px, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  30% {
+    -webkit-mask-size: auto, 50px 50px, 50px 50px, 60px 60px, 0 0, 0 0, 0 0, 0 0,
+      0 0;
+  }
+  40% {
+    -webkit-mask-size: auto, 50px 50px, 50px 50px, 60px 60px, 60px 60px, 0 0,
+      0 0, 0 0, 0 0;
+  }
+  50% {
+    -webkit-mask-size: auto, 50px 50px, 50px 50px, 60px 60px, 60px 60px,
+      50px 50px, 0 0, 0 0, 0 0;
+  }
+  60% {
+    -webkit-mask-size: auto, 50px 50px, 50px 50px, 60px 60px, 60px 60px,
+      50px 50px, 50px 50px, 0 0, 0 0;
+  }
+  70% {
+    -webkit-mask-size: auto, 50px 50px, 50px 50px, 60px 60px, 60px 60px,
+      50px 50px, 50px 50px, 50px 50px, 0 0;
+  }
+  80%,
+  100% {
+    -webkit-mask-size: auto, 50px 50px, 50px 50px, 60px 60px, 60px 60px,
+      50px 50px, 50px 50px, 50px 50px, 400% 400%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media query for responsive design */
+@media only screen and (max-width: 600px) {
+  .sidecontainer {
+    display: none; /* Hide sidebar on small screens */
+  }
+  .mcontainer {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+  }
+}
